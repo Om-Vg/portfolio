@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Terminal, Globe, Shield, Book, Briefcase, Code, Award, Coffee, Mail, Linkedin, Github, MapPin, Cake, Star, Bug, Lock, Folder, Heart } from 'lucide-react';
+import { Terminal, Shield, Book, Coffee, Mail, Cake, Bug, Lock, Heart, Globe, Folder } from 'lucide-react';
 
 const Portfolio = () => {
   const [selectedLocation, setSelectedLocation] = useState<any>(null);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
+  
   const workExperience = [
     {
       title: "Security Consultant",
@@ -39,48 +38,6 @@ const Portfolio = () => {
         "Investigated and prevented Bitcoin mining incident"
       ],
       icon: Bug
-    }
-  ];
-
-  const projects = [
-    {
-      title: "Web Application Security Scanner",
-      description: "Automated security testing tool for web applications",
-      tags: ["Python", "Security", "OWASP"],
-      icon: Shield
-    },
-    {
-      title: "Network Monitoring Dashboard",
-      description: "Real-time network traffic analysis and visualization",
-      tags: ["JavaScript", "React", "Network Security"],
-      icon: Terminal
-    },
-    {
-      title: "API Security Framework",
-      description: "Custom framework for API penetration testing",
-      tags: ["Python", "API Security", "Automation"],
-      icon: Lock
-    }
-  ];
-
-  const coffeePassions = [
-    {
-      title: "Artisanal Coffee Expert",
-      description: "Specializing in single-origin beans and unique brewing methods",
-      details: "Certified in advanced brewing techniques and bean selection",
-      icon: Coffee
-    },
-    {
-      title: "Pastry Chef",
-      description: "Creating unique fusion pastries combining global influences",
-      details: "Specializing in French techniques with Asian flavors",
-      icon: Cake
-    },
-    {
-      title: "Future Café Owner",
-      description: "Planning an artisanal coffee house with a global twist",
-      details: "Concept: Modern café meets traditional brewing methods",
-      icon: Heart
     }
   ];
 
@@ -229,7 +186,16 @@ const Portfolio = () => {
           <h2 className="text-2xl font-bold mb-4 flex items-center">
             <Globe className="mr-2" /> Travel & Global Experience
           </h2>
-          <EnhancedMap />
+          <div className="relative">
+            <img src="/world-map.png" alt="World Map" className="rounded-lg" />
+            {selectedLocation && (
+              <div className="absolute top-0 left-0 bg-gray-800 bg-opacity-90 p-4 rounded-lg">
+                <h3 className="text-xl font-bold text-purple-300">{selectedLocation.name}</h3>
+                <p className="text-purple-200 mb-4">{selectedLocation.experience}</p>
+                <p className="text-purple-300">{selectedLocation.highlight}</p>
+              </div>
+            )}
+          </div>
           <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {visitedLocations.map((location, index) => (
               <button
@@ -237,7 +203,7 @@ const Portfolio = () => {
                 onClick={() => setSelectedLocation(location)}
                 className="flex items-center space-x-2 bg-gray-700 p-2 rounded hover:bg-gray-600 transition-colors"
               >
-                <MapPin size={16} className="text-purple-400" />
+                <Mail className="w-6 h-6 text-purple-400" />
                 <span>{location.name}</span>
               </button>
             ))}
