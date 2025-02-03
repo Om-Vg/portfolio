@@ -195,7 +195,7 @@ const Portfolio = () => {
                 </div>
               </div>
             ))}
-          </div>}
+          </div>
           <div className="bg-gray-700 p-6 rounded-lg border border-purple-400">
             <h3 className="text-xl font-bold text-purple-300 mb-4">Dream Café Blueprint: /root/coffee_house</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
