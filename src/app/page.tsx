@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Terminal, Shield, Book, Coffee, Cake, Heart } from 'lucide-react';
+import { Shield, Book, Coffee, Cake, Heart } from 'lucide-react';
 
 const Portfolio = () => {
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
-
+  
   const visitedLocations = [
     {
       name: "United States",
