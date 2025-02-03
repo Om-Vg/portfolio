@@ -150,97 +150,152 @@ const Portfolio = () => {
     }
   ];
 
-  const EnhancedMap = () => {
-    const continents = [
-      "M 50,150 C 150,100 250,200 350,150 C 450,100 550,200 650,150",
-      "M 150,200 C 200,250 300,200 400,250",
-      "M 400,150 C 450,100 500,200 550,150",
-      "M 500,200 C 550,250 600,200 650,250",
-      "M 600,150 C 650,100 700,200 750,150",
-      "M 650,300 C 700,350 750,300 800,350"
-    ];
+  const projects = [
+    {
+      title: "Web Application Security Scanner",
+      description: "Automated security testing tool for web applications",
+      tags: ["Python", "Security", "OWASP"],
+      icon: Shield
+    },
+    {
+      title: "Network Monitoring Dashboard",
+      description: "Real-time network traffic analysis and visualization",
+      tags: ["JavaScript", "React", "Network Security"],
+      icon: Terminal
+    },
+    {
+      title: "API Security Framework",
+      description: "Custom framework for API penetration testing",
+      tags: ["Python", "API Security", "Automation"],
+      icon: Lock
+    }
+  ];
 
-    return (
-      <div className="relative w-full bg-gray-800 rounded-lg overflow-hidden p-4">
-        <svg 
-          viewBox="0 0 800 400" 
-          className="w-full h-full"
-          style={{ backgroundColor: '#1a202c' }}
-        >
-          {continents.map((path, index) => (
-            <path
-              key={index}
-              d={path}
-              stroke="#2D3748"
-              strokeWidth="2"
-              fill="none"
-            />
-          ))}
-          
-          {visitedLocations.map((location, index) => (
-            <g 
-              key={index}
-              onClick={() => setSelectedLocation(location)}
-              className="cursor-pointer transform hover:scale-110 transition-transform duration-200"
-            >
-              <circle
-                cx={location.x}
-                cy={location.y}
-                r="12"
-                className="fill-purple-500 opacity-20"
-              />
-              
-              <circle
-                cx={location.x}
-                cy={location.y}
-                r="6"
-                className="fill-purple-500 hover:fill-purple-300 transition-colors duration-200"
-              />
-              
-              <text
-                x={location.x + 10}
-                y={location.y + 5}
-                className="text-xs fill-current text-purple-200 pointer-events-none"
-              >
-                {location.name}
-              </text>
-            </g>
-          ))}
-        </svg>
-        
-        {selectedLocation && (
-          <div className="absolute bottom-4 left-4 right-4 bg-gray-900 p-4 rounded-lg border border-purple-500">
-            <h3 className="text-xl font-bold text-purple-300">{selectedLocation.name}</h3>
-            <p className="text-purple-200 mb-2">{selectedLocation.highlight}</p>
-            <p className="text-purple-200 italic">{selectedLocation.experience}</p>
-          </div>
-        )}
-      </div>
-    );
-  };
+  const coffeePassions = [
+    {
+      title: "Artisanal Coffee Expert",
+      description: "Specializing in single-origin beans and unique brewing methods",
+      details: "Certified in advanced brewing techniques and bean selection",
+      icon: Coffee
+    },
+    {
+      title: "Pastry Chef",
+      description: "Creating unique fusion pastries combining global influences",
+      details: "Specializing in French techniques with Asian flavors",
+      icon: Cake
+    },
+    {
+      title: "Future Café Owner",
+      description: "Planning an artisanal coffee house with a global twist",
+      details: "Concept: Modern café meets traditional brewing methods",
+      icon: Heart
+    }
+  ];
+
+  // Previous components remain the same...
 
   return (
     <div className="min-h-screen bg-gray-900 text-purple-50">
-      <header className="bg-gray-800 border-b border-purple-500">
-        <nav className="max-w-6xl mx-auto p-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Om Venugopal</h1>
-          <div className="flex space-x-4">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400">
-              <Github className="w-6 h-6" />
-            </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400">
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a href="mailto:omlsvenugopal@gmail.com" className="hover:text-purple-400">
-              <Mail className="w-6 h-6" />
-            </a>
-          </div>
-        </nav>
-      </header>
+      {/* Previous header and initial sections remain the same... */}
 
       <main className="max-w-6xl mx-auto p-6 space-y-6">
-        {/* Sections as before... */}
-        {/* Add all the sections from the previous version */}
+        {/* Previous sections remain... */}
+
+        {/* Projects Section */}
+        <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
+          <h2 className="text-2xl font-bold mb-4 flex items-center">
+            <Folder className="mr-2" /> Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <div key={index} className="bg-gray-700 p-4 rounded-lg border border-purple-400 hover:border-purple-300 transition-all">
+                <div className="flex items-center mb-2">
+                  <project.icon className="w-6 h-6 mr-2 text-purple-400" />
+                  <h3 className="text-xl font-bold">{project.title}</h3>
+                </div>
+                <p className="text-purple-200 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, i) => (
+                    <span key={i} className="px-2 py-1 bg-purple-500 rounded text-sm">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Global Experience Map */}
+        <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
+          <h2 className="text-2xl font-bold mb-4 flex items-center">
+            <Globe className="mr-2" /> Travel & Global Experience
+          </h2>
+          <EnhancedMap />
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {visitedLocations.map((location, index) => (
+              <button
+                key={index}
+                onClick={() => setSelectedLocation(location)}
+                className="flex items-center space-x-2 bg-gray-700 p-2 rounded hover:bg-gray-600 transition-colors"
+              >
+                <MapPin size={16} className="text-purple-400" />
+                <span>{location.name}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Personal Interests - Coffee & Baking */}
+        <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
+          <h2 className="text-2xl font-bold mb-4 flex items-center">
+            <Heart className="mr-2" /> Personal Interests
+          </h2>
+          
+          {/* Coffee & Baking Passions */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            {coffeePassions.map((passion, index) => (
+              <div
+                key={index}
+                className="bg-gray-700 p-6 rounded-lg border border-purple-400 hover:border-purple-300 transition-all"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="flex items-center mb-4">
+                  <passion.icon className="w-8 h-8 text-purple-400 mr-2" />
+                  <h3 className="text-xl font-bold text-purple-300">{passion.title}</h3>
+                </div>
+                <p className="text-purple-200">{passion.description}</p>
+                {hoveredCard === index && (
+                  <div className="mt-4 p-4 bg-gray-800 rounded-lg">
+                    <p className="text-purple-300">{passion.details}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Dream Café Blueprint */}
+          <div className="bg-gray-700 p-6 rounded-lg border border-purple-400">
+            <h3 className="text-xl font-bold text-purple-300 mb-4">Dream Café Blueprint: /root/coffee_house</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="flex flex-col items-center p-4 bg-gray-800 rounded-lg">
+                <Coffee size={24} className="text-purple-400 mb-2" />
+                <span>Roastery Lab</span>
+              </div>
+              <div className="flex flex-col items-center p-4 bg-gray-800 rounded-lg">
+                <Cake size={24} className="text-purple-400 mb-2" />
+                <span>Pastry Workshop</span>
+              </div>
+              <div className="flex flex-col items-center p-4 bg-gray-800 rounded-lg">
+                <Book size={24} className="text-purple-400 mb-2" />
+                <span>Global Recipe Library</span>
+              </div>
+              <div className="flex flex-col items-center p-4 bg-gray-800 rounded-lg">
+                <Heart size={24} className="text-purple-400 mb-2" />
+                <span>Community Space</span>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
