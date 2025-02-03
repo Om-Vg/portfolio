@@ -1,11 +1,19 @@
 'use client';
-
-import React, { useState } from 'react';
-import { Shield, Book, Coffee, Cake, Heart } from 'lucide-react';
+import React from 'react';
+import { 
+  Shield, 
+  Book, 
+  Coffee, 
+  Cake, 
+  Heart, 
+  MapPin, 
+  Bug, 
+  Terminal, 
+  Lock 
+} from 'lucide-react';
 
 const Portfolio = () => {
-  
-  const visitedLocations = [
+  const _visitedLocations = [
     {
       name: "United States",
       x: 200,
@@ -68,6 +76,62 @@ const Portfolio = () => {
       y: 315,
       highlight: "Malaysian Paradise",
       experience: "Malaysian island coffee spots"
+    }// ... (previous locations remain the same)
+  ];
+
+  const workExperience = [
+    { 
+      title: "Security Consultant", 
+      company: "IBM India", 
+      period: "Dec 2023 - Present", 
+      highlights: [ 
+        "Conducted comprehensive penetration testing of web applications and APIs", 
+        "Performed API security assessments", 
+        "Executed automated and manual security assessments" 
+      ], 
+      icon: Shield 
+    },
+    { 
+      title: "Graduate Teaching Assistant", 
+      company: "University of Maryland", 
+      period: "Aug 2022 - May 2023", 
+      highlights: [ 
+        "Assisted in designing practical labs on encryption and authentication", 
+        "Ensured consistent grading for cybersecurity assessments" 
+      ], 
+      icon: Book 
+    },
+    { 
+      title: "Cyber Security Intern", 
+      company: "The New York Public Library", 
+      period: "Jun 2022 - Aug 2022", 
+      highlights: [ 
+        "Spearheaded phishing awareness campaigns", 
+        "Leveraged EDR and SIEM tools", 
+        "Investigated and prevented Bitcoin mining incident" 
+      ], 
+      icon: Bug 
+    }
+  ];
+
+  const projects = [
+    { 
+      title: "Web Application Security Scanner", 
+      description: "Automated security testing tool for web applications", 
+      tags: ["Python", "Security", "OWASP"], 
+      icon: Shield 
+    },
+    { 
+      title: "Network Monitoring Dashboard", 
+      description: "Real-time network traffic analysis and visualization", 
+      tags: ["JavaScript", "React", "Network Security"], 
+      icon: Terminal 
+    },
+    { 
+      title: "API Security Framework", 
+      description: "Custom framework for API penetration testing", 
+      tags: ["Python", "API Security", "Automation"], 
+      icon: Lock 
     }
   ];
 
@@ -79,8 +143,20 @@ const Portfolio = () => {
             <Heart className="mr-2" /> Personal Interests
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {/* Example passion component */}
+            <div className="bg-gray-700 p-4 rounded-lg flex items-center">
+              <Coffee size={24} className="mr-3 text-purple-400" />
+              <span>Coffee Exploration</span>
+            </div>
+            <div className="bg-gray-700 p-4 rounded-lg flex items-center">
+              <MapPin size={24} className="mr-3 text-purple-400" />
+              <span>Global Travel</span>
+            </div>
+            <div className="bg-gray-700 p-4 rounded-lg flex items-center">
+              <Book size={24} className="mr-3 text-purple-400" />
+              <span>Continuous Learning</span>
+            </div>
           </div>
+          
           <div className="bg-gray-700 p-6 rounded-lg border border-purple-400">
             <h3 className="text-xl font-bold text-purple-300 mb-4">Dream Café Blueprint: /root/coffee_house</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -103,12 +179,81 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
+
         <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
           <h2 className="text-2xl font-bold mb-4 flex items-center">
-            <Shield className="mr-2" /> Security Projects
+            <Shield className="mr-2" /> Work Experience
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Example project component */}
+          <div className="space-y-4">
+            {workExperience.map((job) => (
+              <div 
+                key={job.title} 
+                className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <div className="flex items-center mb-2">
+                  <job.icon className="mr-3 text-purple-400" size={24} />
+                  <div>
+                    <h3 className="text-lg font-semibold text-purple-300">{job.title}</h3>
+                    <p className="text-sm">{job.company} | {job.period}</p>
+                  </div>
+                </div>
+                <ul className="list-disc list-inside text-sm text-gray-300">
+                  {job.highlights.map((highlight, index) => (
+                    <li key={index}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
+          <h2 className="text-2xl font-bold mb-4 flex items-center">
+            <Terminal className="mr-2" /> Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {projects.map((project) => (
+              <div 
+                key={project.title} 
+                className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <div className="flex items-center mb-2">
+                  <project.icon className="mr-3 text-purple-400" size={24} />
+                  <h3 className="text-lg font-semibold text-purple-300">{project.title}</h3>
+                </div>
+                <p className="text-sm mb-2">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span 
+                      key={tag} 
+                      className="bg-purple-500 text-xs px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
+          <h2 className="text-2xl font-bold mb-4 flex items-center">
+            <Shield className="mr-2" /> Visited Locations
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {_visitedLocations.map((location) => (
+              <div 
+                key={location.name} 
+                className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <h3 className="text-lg font-semibold text-purple-300 mb-2">
+                  {location.name}
+                </h3>
+                <p className="text-sm mb-1">{location.highlight}</p>
+                <p className="text-xs text-gray-400">{location.experience}</p>
+              </div>
+            ))}
           </div>
         </section>
       </main>
