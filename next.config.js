@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Enables static export
+  output: 'export',  // Enables static export during 'npm run build'
   images: {
-    unoptimized: true, // Avoids errors related to image optimization
+    unoptimized: true,  // Prevents issues with Next.js image optimization
   },
-  basePath: '/portfolio', // Optional: if deploying to a subfolder
+  basePath: '/portfolio', // Required if deploying under a subpath
+  assetPrefix: '/portfolio/', // Ensures assets load correctly
 };
 
 module.exports = nextConfig;
