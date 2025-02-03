@@ -137,7 +137,94 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-purple-50">
+    <header className="bg-gray-800 border-b border-purple-500">
+    <div className="max-w-6xl mx-auto p-6 flex flex-col md:flex-row items-center">
+      <div className="w-full md:w-2/3">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-pulse">
+          <span className="text-purple-400">~/</span>
+          <span className="text-purple-300 hover:text-purple-200 transition-colors">
+            Om Venugopal
+          </span>
+        </h1>
+        <div className="bg-gray-700 p-4 rounded-lg flex items-center">
+          <Terminal size={24} className="mr-3 text-green-400" />
+          <p className="text-sm">
+            <span className="text-green-400">➜</span> Cybersecurity Enthusiast | Coffee Connoisseur | Global Wanderer
+          </p>
+        </div>
+        <div className="mt-4 bg-gray-700 p-4 rounded-lg">
+          <p className="text-sm text-gray-300">
+            Crafting digital fortresses by day, exploring coffee cultures by night. 
+            My life is a blend of security protocols and espresso shots – 
+            where code meets caffeine, and curiosity knows no borders.
+          </p>
+        </div>
+      </div>
+      <div className="hidden md:block w-1/3 pl-6">
+        <div className="bg-gray-700 p-4 rounded-lg flex items-center justify-center">
+          <Cpu size={64} className="text-purple-400 animate-spin-slow" />
+        </div>
+      </div>
+    </div>
+  </header>
+  
       <main className="max-w-6xl mx-auto p-6 space-y-6">
+      <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
+      <h2 className="text-2xl font-bold mb-4 flex items-center">
+        <Shield className="mr-2" /> Work Experience
+      </h2>
+      <div className="space-y-4">
+        {workExperience.map((job) => (
+          <div 
+            key={job.title} 
+            className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+          >
+            <div className="flex items-center mb-2">
+              <job.icon className="mr-3 text-purple-400" size={24} />
+              <div>
+                <h3 className="text-lg font-semibold text-purple-300">{job.title}</h3>
+                <p className="text-sm">{job.company} | {job.period}</p>
+              </div>
+            </div>
+            <ul className="list-disc list-inside text-sm text-gray-300">
+              {job.highlights.map((highlight, index) => (
+                <li key={index}>{highlight}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
+      <h2 className="text-2xl font-bold mb-4 flex items-center">
+        <Terminal className="mr-2" /> Projects
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {projects.map((project) => (
+          <div 
+            key={project.title} 
+            className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
+          >
+            <div className="flex items-center mb-2">
+              <project.icon className="mr-3 text-purple-400" size={24} />
+              <h3 className="text-lg font-semibold text-purple-300">{project.title}</h3>
+            </div>
+            <p className="text-sm mb-2">{project.description}</p>
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span 
+                  key={tag} 
+                  className="bg-purple-500 text-xs px-2 py-1 rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
         <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
           <h2 className="text-2xl font-bold mb-4 flex items-center">
             <Heart className="mr-2" /> Personal Interests
@@ -177,63 +264,6 @@ const Portfolio = () => {
                 <span>Community Space</span>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
-          <h2 className="text-2xl font-bold mb-4 flex items-center">
-            <Shield className="mr-2" /> Work Experience
-          </h2>
-          <div className="space-y-4">
-            {workExperience.map((job) => (
-              <div 
-                key={job.title} 
-                className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
-              >
-                <div className="flex items-center mb-2">
-                  <job.icon className="mr-3 text-purple-400" size={24} />
-                  <div>
-                    <h3 className="text-lg font-semibold text-purple-300">{job.title}</h3>
-                    <p className="text-sm">{job.company} | {job.period}</p>
-                  </div>
-                </div>
-                <ul className="list-disc list-inside text-sm text-gray-300">
-                  {job.highlights.map((highlight, index) => (
-                    <li key={index}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
-          <h2 className="text-2xl font-bold mb-4 flex items-center">
-            <Terminal className="mr-2" /> Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects.map((project) => (
-              <div 
-                key={project.title} 
-                className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition-colors"
-              >
-                <div className="flex items-center mb-2">
-                  <project.icon className="mr-3 text-purple-400" size={24} />
-                  <h3 className="text-lg font-semibold text-purple-300">{project.title}</h3>
-                </div>
-                <p className="text-sm mb-2">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span 
-                      key={tag} 
-                      className="bg-purple-500 text-xs px-2 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 
