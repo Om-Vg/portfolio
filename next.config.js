@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/your-repository-name',
+  basePath: '/portfolio',
   images: {
     unoptimized: true
   }
