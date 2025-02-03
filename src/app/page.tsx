@@ -5,41 +5,6 @@ import { Terminal, Shield, Book, Coffee, Mail, Cake, Bug, Lock, Heart, Globe, Fo
 
 const Portfolio = () => {
   const [selectedLocation, setSelectedLocation] = useState<any>(null);
-  
-  const workExperience = [
-    {
-      title: "Security Consultant",
-      company: "IBM India",
-      period: "Dec 2023 - Present",
-      highlights: [
-        "Conducted comprehensive penetration testing of web applications and APIs",
-        "Performed API security assessments",
-        "Executed automated and manual security assessments"
-      ],
-      icon: Shield
-    },
-    {
-      title: "Graduate Teaching Assistant",
-      company: "University of Maryland",
-      period: "Aug 2022 - May 2023",
-      highlights: [
-        "Assisted in designing practical labs on encryption and authentication",
-        "Ensured consistent grading for cybersecurity assessments"
-      ],
-      icon: Book
-    },
-    {
-      title: "Cyber Security Intern",
-      company: "The New York Public Library",
-      period: "Jun 2022 - Aug 2022",
-      highlights: [
-        "Spearheaded phishing awareness campaigns",
-        "Leveraged EDR and SIEM tools",
-        "Investigated and prevented Bitcoin mining incident"
-      ],
-      icon: Bug
-    }
-  ];
 
   const visitedLocations = [
     { 
@@ -219,27 +184,18 @@ const Portfolio = () => {
           {/* Coffee & Baking Passions */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {coffeePassions.map((passion, index) => (
-              <div
-                key={index}
-                className="bg-gray-700 p-6 rounded-lg border border-purple-400 hover:border-purple-300 transition-all"
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
+              <div key={index} className="bg-gray-700 p-4 rounded-lg border border-purple-400">
                 <div className="flex items-center mb-4">
                   <passion.icon className="w-8 h-8 text-purple-400 mr-2" />
                   <h3 className="text-xl font-bold text-purple-300">{passion.title}</h3>
                 </div>
                 <p className="text-purple-200">{passion.description}</p>
-                {hoveredCard === index && (
-                  <div className="mt-4 p-4 bg-gray-800 rounded-lg">
-                    <p className="text-purple-300">{passion.details}</p>
-                  </div>
-                )}
+                <div className="mt-4 p-4 bg-gray-800 rounded-lg">
+                  <p className="text-purple-300">{passion.details}</p>
+                </div>
               </div>
             ))}
-          </div>
-
-          {/* Dream Café Blueprint */}
+          </div>}
           <div className="bg-gray-700 p-6 rounded-lg border border-purple-400">
             <h3 className="text-xl font-bold text-purple-300 mb-4">Dream Café Blueprint: /root/coffee_house</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -267,4 +223,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Portfolio; 
