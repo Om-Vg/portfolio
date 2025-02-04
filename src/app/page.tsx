@@ -137,6 +137,37 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-purple-50">
+    <header className="bg-gray-800 border-b border-purple-500">
+    <div className="max-w-6xl mx-auto p-6 flex flex-col md:flex-row items-center">
+      <div className="w-full md:w-2/3">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-pulse">
+          <span className="text-purple-400">~/</span>
+          <span className="text-purple-300 hover:text-purple-200 transition-colors">
+            Om Venugopal
+          </span>
+        </h1>
+        <div className="bg-gray-700 p-4 rounded-lg flex items-center">
+          <Terminal size={24} className="mr-3 text-green-400" />
+          <p className="text-sm">
+            <span className="text-green-400">➜</span> Cybersecurity Enthusiast | Coffee Connoisseur | Global Wanderer
+          </p>
+        </div>
+        <div className="mt-4 bg-gray-700 p-4 rounded-lg">
+          <p className="text-sm text-gray-300">
+            Crafting digital fortresses by day, exploring coffee cultures by night. 
+            My life is a blend of security protocols and espresso shots – 
+            where code meets caffeine, and curiosity knows no borders.
+          </p>
+        </div>
+      </div>
+      <div className="hidden md:block w-1/3 pl-6">
+        <div className="bg-gray-700 p-4 rounded-lg flex items-center justify-center">
+          <Cpu size={64} className="text-purple-400 animate-spin-slow" />
+        </div>
+      </div>
+    </div>
+  </header>
+  
       <main className="max-w-6xl mx-auto p-6 space-y-6">
         <section className="bg-gray-800 rounded-lg p-6 border border-purple-500">
           <h2 className="text-2xl font-bold mb-4 flex items-center">
