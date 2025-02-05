@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Script from 'next/script';
 import { 
   Shield, 
   Book, 
@@ -135,16 +136,21 @@ const Portfolio = () => {
     }
   ];
   
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-65EHQH8ZPQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-function gtag(){window.dataLayer.push(arguments);
-  gtag('js', new Date());
-  gtag('config', 'G-65EHQH8ZPQ');
-</script>
-
   return (
+  <>
+      {/* Google Tag (gtag.js) */}
+      <Script 
+        src="https://www.googletagmanager.com/gtag/js?id=G-65EHQH8ZPQ" 
+        strategy="afterInteractive" 
+      />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-65EHQH8ZPQ');
+        `}
+      </Script>
     <div className="min-h-screen bg-gray-900 text-purple-50">
     <header className="bg-gray-800 border-b border-purple-500">
     <div className="max-w-6xl mx-auto p-6 flex flex-col md:flex-row items-center">
