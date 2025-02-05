@@ -139,12 +139,10 @@ const Portfolio = () => {
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-65EHQH8ZPQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+function gtag(){window.dataLayer.push(arguments);
   gtag('js', new Date());
-
   gtag('config', 'G-65EHQH8ZPQ');
 </script>
-
 
   return (
     <div className="min-h-screen bg-gray-900 text-purple-50">
