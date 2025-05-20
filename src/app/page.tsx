@@ -77,7 +77,7 @@ const Portfolio = () => {
       highlight: "Malaysian Paradise",
       experience: "Malaysian island coffee spots"
     }// ... (previous locations remain the same)
-  ];
+  ]; 
 
   const workExperience = [
     { 
@@ -85,9 +85,9 @@ const Portfolio = () => {
       company: "IBM India", 
       period: "Dec 2023 - Present", 
       highlights: [ 
-        "Conducted comprehensive penetration testing of web applications and APIs", 
-        "Performed API security assessments", 
-        "Executed automated and manual security assessments" 
+        "/li Directed threat modeling initiatives for critical projects, including Operational Technology (OT) environments, and conducted risk assessments utilizing the CIA triad, enhancing risk detection and mitigation strategies by 35%", 
+        "/li Conducted penetration tests for web, API, and OT systems, resolving 20+ vulnerabilities and reducing attack vectors by 40%.", 
+        "/li Delivered comprehensive security reports to stakeholders, ensuring actionable remediation steps and a 25% reduction in vulnerability remediation time "  
       ], 
       icon: Shield 
     },
@@ -96,8 +96,7 @@ const Portfolio = () => {
       company: "University of Maryland", 
       period: "Aug 2022 - May 2023", 
       highlights: [ 
-        "Assisted in designing practical labs on encryption and authentication", 
-        "Ensured consistent grading for cybersecurity assessments" 
+        "Assisted Prof. Majid Raissi Dehkordi in designing practical labs on cryptography,encryption, and broken authentication using Wireshark, scripting for Network Security, benefitting 142 students"
       ], 
       icon: Book 
     },
@@ -106,9 +105,9 @@ const Portfolio = () => {
       company: "The New York Public Library", 
       period: "Jun 2022 - Aug 2022", 
       highlights: [ 
-        "Spearheaded phishing awareness campaigns", 
-        "Leveraged EDR and SIEM tools", 
-        "Investigated and prevented Bitcoin mining incident" 
+        "Investigated and thwarted a Bitcoin mining crime, preventing resource exploitation and strengthening institutional network security .",
+        "● Spearheaded phishing awareness campaigns and implemented security measures as per Privacy Acts: PCI-DSS, NIST, and ISO 27001 compliance.",
+        "● Monitored security events, led incident response efforts, and utilized advanced XDR and EDR tools to identify and address 15+ dormant vulnerabilities, enhancing security posture, ensuring compliance, and saving 40 man-hours weekly" 
       ], 
       icon: Bug 
     }
